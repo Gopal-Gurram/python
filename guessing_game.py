@@ -2,16 +2,19 @@ import sys
 
 from random import randint
 
-random_number = randint(int(sys.argv[1]), int(sys.argv[2]))
+random_number = randint(1, 10)
 
 while True:
     try:
-        number = int(
-            input('Please choose a number that falls between those two you just chose: '))
-        if number >= int(sys.argv[1]) and number <= int(sys.argv[2]):
-            if number == random_number:
-                print("You're a genius!")
+        guess = int(input("Please enter a random number between 1~10:   "))
+
+        if 0 < guess < 11:
+            if guess == random_number:
+                print('You are a genius')
                 break
+        else:
+            print('hey bozo, I said 1 ~ 10')
+
     except ValueError:
-        print("Please enter a number")
+        print('Please enter a number')
         continue
